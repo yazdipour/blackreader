@@ -1,0 +1,17 @@
+﻿<UserControl
+    x:Class="PdfReader.View.Keyboard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PdfReader.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="48"
+     DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    d:DesignWidth="48">
+    <Grid Width="48" Height="48">
+        <Path Width="48" Height="48" Stretch="Fill" Fill="#FFFFFFFF" Data="F1 M 606.751,474.199C 606.751,507.79 579.41,535.145 545.799,535.145L 136.863,535.145C 103.257,535.145 75.9047,507.801 75.9047,474.199L 75.9047,56.4619C 75.9047,22.8672 103.247,-4.4848 136.863,-4.4848L 545.799,-4.4848C 579.398,-4.4848 606.751,22.8592 606.751,56.4619M 612.715,-75.9995L 69.946,-75.9995C 34.5433,-75.9995 5.83667,-47.2914 5.83667,-11.8862L 5.83667,542.551C 5.83667,577.961 34.546,606.666 69.946,606.666L 612.725,606.666C 648.126,606.666 676.834,577.961 676.834,542.551L 676.834,-11.8954C 676.831,-47.2914 648.125,-75.9995 612.715,-75.9995 Z M 545.798,20.7885L 136.863,20.7885C 117.187,20.7885 101.178,36.7845 101.178,56.4525L 101.178,474.199C 101.178,493.862 117.177,509.859 136.863,509.859L 545.799,509.859C 565.47,509.859 581.479,493.862 581.479,474.199L 581.479,56.4619C 581.469,36.7966 565.469,20.7885 545.798,20.7885 Z "/>
+        <TextBlock Foreground="Black" FontWeight="SemiBold" FontSize="22" Margin="8 4 0 0"
+                   Text="{Binding KeyText}"/>
+    </Grid>
+</UserControl>

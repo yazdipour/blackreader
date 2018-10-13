@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="PdfReader.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PdfReader"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded" SizeChanged="Home_OnSizeChanged">
+    <Page.Resources>
+        <DataTemplate x:Key="NavLinkItemTemplate" x:DataType="local:BurgerItems">
+            <StackPanel Orientation="Horizontal"  Margin="4,0,0,0" Tag="{x:Bind Label}" Width="260" >
+                <TextBlock Text="{x:Bind Symbol}" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center"  Foreground="{x:Bind SymColor}"/>
+                <TextBlock Text="{x:Bind Label}" Margin="24,0,0,0" VerticalAlignment="Center" FontSize="16"  Foreground="{x:Bind Color}"
+                           FontWeight="Light"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="FileListTemp" x:DataType="local:BurgerItems">
+            <Grid Margin="4,0,0,0" Tag="{x:Bind Label}" Width="260" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="24" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Bind Symbol}" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1" Text="{x:Bind Label}" Margin="24,0,0,0" VerticalAlignment="Center" 
+                           FontSize="16" FontWeight="Light"/>
+                <AppBarButton Grid.Column="2" Icon="Cancel" HorizontalAlignment="Left" Height="48" Width="40" 
+                              VerticalAlignment="Stretch" Tag="{x:Bind Label}"
+                              Click="AppBarButton_Click" Margin="0,-2,0,0"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <AppBarButton x:Name="hamburgerBtn" Width="48" Height="44" Background="#10000000" Canvas.ZIndex="99" Click="OpenPan_Click">
+            <AppBarButton.Icon>
+                <BitmapIcon UriSource="ms-appx:///Assets/Icons/dot.png"/>
+            </AppBarButton.Icon>
+        </AppBarButton>
+        <Grid>
+            <SplitView DisplayMode="CompactOverlay" x:Name="SV" 
+                       Canvas.ZIndex="98" OpenPaneLength="260" CompactPaneLength="48">
+                <SplitView.Pane>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel.Background>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="../Assets/bg.jpg"/>
+                        </StackPanel.Background>
+                        <ListView x:Name="lsv" IsItemClickEnabled="True" Width="260" 
+                                  ItemTemplate="{StaticResource NavLinkItemTemplate}" 
+                                  ItemClick="MenuList_ItemClick" SelectionMode="None" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                  ScrollViewer.VerticalScrollMode="Disabled"/>
+                        <ListView x:Name="listFiles" IsItemClickEnabled="True" Width="260" x:DeferLoadStrategy="Lazy" Visibility="Collapsed"
+                                  ItemTemplate="{StaticResource FileListTemp}" BorderThickness="0,0.5,0,0" BorderBrush="White"
+                                  ItemClick="MenuList2_ItemClick" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+
+                    </StackPanel>
+                </SplitView.Pane>
+                <Grid>
+                    <Grid x:Name="TitleBox" Height="44" HorizontalAlignment="Stretch" 
+                          Background="#FF222222" VerticalAlignment="Top">
+                        <TextBlock x:Name="TitleHeader" Text="Home" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiLight"/>
+                    </Grid>
+                    <Rectangle x:Name="mTitleBar" Opacity="1" Fill="Transparent"  VerticalAlignment="Top" 
+                               Height="44" Canvas.ZIndex="100"/>
+                    <Frame RelativePanel.Below="TitleBox" x:Name="insideFrame" Navigated="insideFrame_Navigated"
+                           ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="Black"/>
+                </Grid>
+            </SplitView>
+        </Grid>
+    </Grid>
+</Page>

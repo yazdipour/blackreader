@@ -1,0 +1,101 @@
+﻿<Page
+    x:Class="PdfReader.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PdfReader"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" FontWeight="Light">
+    <Page.Transitions>
+        <TransitionCollection>
+            <PaneThemeTransition Edge="Bottom" />
+        </TransitionCollection>
+    </Page.Transitions>
+    <Page.Resources>
+        <Style x:Key="Link" TargetType="HyperlinkButton">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+    <StackPanel HorizontalAlignment="Center" >
+        <StackPanel Padding="16">
+            <!--#region TopIcons-->
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Ellipse Width="80" Height="80" Margin="8" Stroke="Black" Grid.RowSpan="2">
+                    <Ellipse.Fill>
+                        <ImageBrush Stretch="Fill" ImageSource="../Assets/Icons/300.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock Text="BLACK READER" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1"/>
+                <TextBlock x:Name="VersionLabel" Text="Version : 5.3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+            </Grid>
+
+            <Button Tag="rate" Content="Rate this app" Click="Button_Click" Margin="0,4" />
+            <Button Tag="fb" Content="Report Errors" Click="Button_Click" Margin="0,4"  />
+            <!--<Button Tag="note" Content="Update Note" Click="Button_Click" Margin="0,4" />-->
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Ellipse Width="64" Height="64" Margin="8" Stroke="Black" Grid.RowSpan="2">
+                    <Ellipse.Fill>
+                        <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Icons/me.jpg"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock Text="Developer : " VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1"/>
+                <TextBlock Text="Shahriar Yazdipour" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+            </Grid>
+            <!--#endregion-->
+
+
+            <!--#region SocialIcons-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="-8,0,0,0" CornerRadius="8" Padding="8,0,0,0">
+                <HyperlinkButton Style="{StaticResource Link}" NavigateUri="Mailto:apps@shahriar.in" >
+                    <Image Source="ms-appx:///Assets/Icons/email.png" />
+                </HyperlinkButton>
+                <HyperlinkButton Style="{StaticResource Link}" NavigateUri="http://shahriar.in/rdct/social/twitter.php" >
+                    <Image Source="ms-appx:///Assets/Icons/twitter.png" />
+                </HyperlinkButton>
+                <HyperlinkButton Style="{StaticResource Link}" NavigateUri="http://shahriar.in/rdct/social/linkedin.php" >
+                    <Image Source="ms-appx:///Assets/Icons/linkedin.png" />
+                </HyperlinkButton>
+                <HyperlinkButton Style="{StaticResource Link}" NavigateUri="http://shahriar.in/" >
+                    <Image Source="ms-appx:///Assets/Icons/web.png" />
+                </HyperlinkButton>
+            </StackPanel>
+            <!--#endregion-->
+            <Button Content="OTHER APPS" Click="OtherApp"/>
+            <Button Content="Need Any App?" Click="OtherApp" Margin="4"/>
+            <RichTextBlock Margin="0,8" HorizontalAlignment="Center" TextAlignment="Center">
+                <Paragraph>
+                    <Run>
+                        Special thanks to:
+                    </Run>
+                </Paragraph>
+                <Paragraph>
+                    <Hyperlink NavigateUri="https://www.instagram.com/inipagi/" Foreground="DodgerBlue">
+                        inipagi
+                    </Hyperlink>
+                    <Run>:for icon inspiration</Run>
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+    </StackPanel>
+</Page>

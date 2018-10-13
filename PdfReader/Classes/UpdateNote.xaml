@@ -1,0 +1,26 @@
+﻿<ContentDialog
+    x:Class="PdfReader.UpdateNote"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PdfReader"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="What's new in Version 5!"
+    PrimaryButtonText="Rate"
+    SecondaryButtonText="Thanks!"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick" 
+    Background="#FF0E0E0E">
+    <StackPanel>
+        <Rectangle Fill="{ThemeResource SystemControlBackgroundAccentBrush}"
+                   Height="8" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                   Margin="0,4"/>
+        <StackPanel Padding="4">
+            <TextBlock Text=" ● New Features:"/>
+            <TextBlock Text="      Pen :Now u can draw on pdf"/>
+            <TextBlock Text="      Support Password protected files"/>
+            <TextBlock Text=" ● Update and Fixes:" Margin="0,8,0,0"/>
+            <TextBlock Text="      Bug fixes"/>
+        </StackPanel>
+    </StackPanel>
+</ContentDialog>
